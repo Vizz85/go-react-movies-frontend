@@ -1,16 +1,16 @@
 import React, {Component, Fragment} from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-export default class Movies extends Component {
+export default class Genres extends Component {
 
     state = {
-        movies: [],
+        genres: [],
         isLoaded: false,
         error: null
-    };
+    }
 
     componentDidMount() {
-        fetch("http://localhost:4000/v1/movies")
+        fetch("http://localhost:4000/v1/genres")
             .then(response => {
                 if (response.status !== 200) {
                     let err = new Error("Invalid response code "+ response.status)
@@ -21,14 +21,14 @@ export default class Movies extends Component {
             })
             .then(json => {
                 this.setState({
-                    movies: json.movies,
+                    genres: json.genres,
                     isLoaded: true
                 })
             })
     }
 
     render() {
-        const { movies, isLoaded, error } = this.state;
+        const { genres, isLoaded, error } = this.state;
 
         if (error) {
             return <div>Error: {error.message}</div>
@@ -37,17 +37,17 @@ export default class Movies extends Component {
         } else {
             return (
                 <Fragment>
-                    <h2>Choose a movie</h2>
+                    <h2>Genres</h2>
 
                     <ul>
-                        {movies.map(m => (
+                        {genres.map(m => (
                             <li key={m.id}>
-                                <Link to={`/movies/${m.id}`}>{m.title}</Link>
+                                <Link to={`/genre/${m.id}`}>{m.genre_name}</Link>
                             </li>
                         ))}
                     </ul>
                 </Fragment>
-            );
+            )
         }
     }
 }
