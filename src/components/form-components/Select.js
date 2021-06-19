@@ -3,7 +3,7 @@ const Select = props => {
         <div className="mb-3">
             <label htmlFor={props.name} className="form-label">{props.title}</label>
             <select
-                className="form-select"
+                className={`form-select ${props.className}`}
                 id={props.name}
                 name={props.name}
                 value={props.value}
@@ -23,6 +23,7 @@ const Select = props => {
                     )
                 })}
             </select>
+            <div className={props.errorDiv}>{props.errorMsg}</div>
         </div>
     )
 }

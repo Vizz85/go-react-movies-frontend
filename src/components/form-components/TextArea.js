@@ -3,7 +3,7 @@ const TextArea = props => {
         <div className="mb-3">
             <label htmlFor={props.name} className="form-label">{props.title}</label>
             <textarea
-                className="form-control"
+                className={`form-control ${props.className}`}
                 id={props.name}
                 name={props.name}
                 rows={props.rows}
@@ -11,6 +11,7 @@ const TextArea = props => {
                 placeholder={props.placeholder}
                 onChange={props.handleChange}
             />
+            <div className={props.errorDiv}>{props.errorMsg}</div>
         </div>
     )
 }
