@@ -25,7 +25,13 @@ export default class GraphQL extends Component {
         this.setState(prevState => ({
             searchTerm: value
         }), () => {
-            this.performSearch();
+            if (value.length === 0 || value.length > 2) {
+                this.performSearch();
+            } else {
+                this.setState({
+                    movies: []
+                })
+            }
         })
     }
 
@@ -119,7 +125,7 @@ export default class GraphQL extends Component {
                     name={'search'}
                     value={this.state.searchTerm}
                     handleChange={this.handleChange}
-                ></Input>
+                />
                 <div className="list-group">
                     {movies.map(m => (
                         <Link key={m.id} className="list-group-item list-group-item-action" to={`/moviesgraphql/${m.id}`}>
