@@ -57,7 +57,7 @@ export default class GraphQL extends Component {
             headers: myHeader
         }
 
-        fetch('http://localhost:4000/v1/graphql', requestOptions)
+        fetch(`${process.env.REACT_APP_API_URL}/v1/graphql`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 let theList = Object.values(data.data.search);
@@ -99,7 +99,7 @@ export default class GraphQL extends Component {
             headers: myHeader
         }
 
-        fetch('http://localhost:4000/v1/graphql', requestOptions)
+        fetch(`${process.env.REACT_APP_API_URL}/v1/graphql`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 let theList = Object.values(data.data.list);
