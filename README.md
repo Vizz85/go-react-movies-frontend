@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+# go-react-movies-frontend
+
+React frontend part of a web application based on the course [Working with React and Go (Golang)](https://www.udemy.com/course/working-with-react-and-go-golang/) from [Trevor Sawler](https://www.udemy.com/user/trevor-sawler/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
