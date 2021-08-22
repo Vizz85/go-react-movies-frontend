@@ -1,15 +1,15 @@
 import React, {Component, Fragment} from "react";
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
-import Movies from "./components/Movies";
 import Home from "./components/Home";
 import Admin from "./components/Admin";
 import OneMovie from "./components/OneMovie";
-import Genres from "./components/Genres";
 import OneGenre from "./components/OneGenre";
 import EditMovie from "./components/EditMovie";
 import Login from "./components/Login";
 import GraphQL from "./components/GraphQL";
 import OneMovieGraphQL from "./components/OneMovieGraphQL";
+import MoviesFunc from "./components/MoviesFunc";
+import GenresFunc from "./components/GenresFunc";
 
 export default class App extends Component {
     constructor(props) {
@@ -102,7 +102,7 @@ export default class App extends Component {
                                 <Route path="/moviesgraphql/:id" component={OneMovieGraphQL}/>
 
                                 <Route path="/movies">
-                                    <Movies/>
+                                    <MoviesFunc/>
                                 </Route>
 
                                 <Route path="/genre/:id" component={OneGenre}/>
@@ -110,7 +110,7 @@ export default class App extends Component {
                                 <Route exact path="/login" component={props => <Login {...props} handleJWTChange={this.handleJWTChange} />} />
 
                                 <Route path="/genres">
-                                    <Genres/>
+                                    <GenresFunc/>
                                 </Route>
 
                                 <Route exact path="/graphql">
